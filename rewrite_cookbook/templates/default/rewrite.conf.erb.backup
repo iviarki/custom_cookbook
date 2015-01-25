@@ -1,0 +1,2 @@
+<% @params[:rewritecond].each do |a| %>RewriteCond <%= "#{a} "%> <% end %>
+<% @params[:rewriterule].each do |a| %>RewriteRule <%= "#{a}" %> <% end %>
