@@ -5,15 +5,15 @@ upstream unicorn_<%= @application[:domains].first %> {
 <%# Redirect naked domain to www %>
 server {
   listen 80;
-  server_name twitmusic-staging.com;
-  return 301 https://www.twitmusic-staging.com$request_uri;
+  server_name <%= @application[:domains].first %>;
+  return 301 https://www.<%= @application[:domains].first %>$request_uri;
 }
 
 <% if @application[:ssl_support] %>
 server {
   listen 443;
-  server_name twitmusic-staging.com;
-  return 301 https://www.twitmusic-staging.com$request_uri;
+  server_name <%= @application[:domains].first %>;
+  return 301 https://www.<%= @application[:domains].first %>$request_uri;
 }
 <% end %>
 
