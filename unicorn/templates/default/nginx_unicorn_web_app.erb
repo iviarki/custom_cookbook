@@ -9,17 +9,9 @@ server {
   return 301 https://www.<%= @application[:domains].first %>$request_uri;
 }
 
-<% if @application[:ssl_support] %>
-server {
-  listen 443;
-  server_name <%= @application[:domains].first %>;
-  return 301 https://www.<%= @application[:domains].first %>$request_uri;
-}
-<% end %>
-
 server {
   listen 80;
-  server_name <%= @application[:domains].join(" ") %> <%= node[:hostname] %>;
+  server_name www.<%= @application[:domains].join(" ") %> <%= node[:hostname] %>;
 
   <% if @application[:log_format] %>
     <% @application[:log_format].each do |log_format_name| %>
@@ -77,7 +69,7 @@ server {
 <% if @application[:ssl_support] %>
 server {
   listen   443;
-  server_name <%= @application[:domains].join(" ") %> <%= node[:hostname] %>;
+  server_name www.<%= @application[:domains].join(" ") %> <%= node[:hostname] %>;
   access_log <%= node[:nginx][:log_dir] %>/<%= @application[:domains].first %>-ssl.access.log;
   
   ssl on;
@@ -124,5 +116,13 @@ server {
   location = /500.html {
     root <%= @application[:absolute_document_root] %>;
   }
+}
+<% end %>
+
+<% if @application[:ssl_support] %>
+server {
+  listen 443;
+  server_name <%= @application[:domains].first %>;
+  return 301 https://www.<%= @application[:domains].first %>$request_uri;
 }
 <% end %>
