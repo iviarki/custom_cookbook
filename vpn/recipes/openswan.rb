@@ -15,7 +15,7 @@ end
       next if item == '.' or item == '..'
       file = Chef::Util::FileEdit.new("/proc/sys/net/ipv4/conf/#{item}/accept_redirects")
       file.search_file_replace("1", "0")
-      file = Chef::Util::FileEdit.new("/proc/sys/net/ipv4/conf/#{item}/end_redirects")
+      file = Chef::Util::FileEdit.new("/proc/sys/net/ipv4/conf/#{item}/send_redirects")
       file.search_file_replace("1", "0")
     end
 
