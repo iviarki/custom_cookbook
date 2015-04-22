@@ -1,5 +1,5 @@
 # Install OpenSwan and allow forwarding
-package 'opensawn' do
+package 'openswan' do
   action :install
 end
 
