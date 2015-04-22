@@ -14,17 +14,17 @@ end
     Dir.foreach('/proc/sys/net/ipv4/conf') do |item|
       next if item == '.' or item == '..'
       file "send_redirects" do
-        path '/proc/sys/net/ipv4/conf/#{item}/send_redirects'
+        path "/proc/sys/net/ipv4/conf/#{item}/send_redirects"
         owner 'root'
         group 'root'
-        mode '0755'
+        mode '0644'
         content '0'
       end
       file "accept_redirects" do
-        path '/proc/sys/net/ipv4/conf/#{item}/accept_redirects'
+        path "/proc/sys/net/ipv4/conf/#{item}/accept_redirects"
         owner 'root'
         group 'root'
-        mode '0755'
+        mode '0644'
         content '0'
       end
     end
