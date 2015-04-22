@@ -38,12 +38,5 @@ service "network" do
 end
 
 execute("verifying the status of SERVICES required by OpenSWAN") do
-  retry_delay 2
-  cookbook_name :vpn
-  backup 5
-  recipe_name "check_status"
-  returns 0
-  retries 0
-  action [:run]
   command "sudo ipsec verify"
 end
