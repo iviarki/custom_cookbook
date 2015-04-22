@@ -25,10 +25,6 @@ service "network" do
   action :restart
 end
 
-service "openswan" do
-  action :restart
-end
-
 execute("verifying the status of SERVICES required by OpenSWAN") do
   command "sudo ipsec verify"
 end
