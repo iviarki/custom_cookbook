@@ -11,15 +11,19 @@ ruby_block "forwarding" do
   end
 end
 
-    Dir.foreach('/proc/sys/net/ipv4/conf') do |item|
-      next if item == '.' or item == '..'
-      file = Chef::Util::FileEdit.new("/proc/sys/net/ipv4/conf/#{item}/accept_redirects")
-      file.search_file_replace("1", "0")
-      file = Chef::Util::FileEdit.new("/proc/sys/net/ipv4/conf/#{item}/send_redirects")
-      file.search_file_replace("1", "0")
-    end
+Dir.foreach('/proc/sys/net/ipv4/conf') do |item|
+  next if item == '.' or item == '..'
+  file = Chef::Util::FileEdit.new("/proc/sys/net/ipv4/conf/#{item}/accept_redirects")
+  file.search_file_replace("1", "0")
+  file = Chef::Util::FileEdit.new("/proc/sys/net/ipv4/conf/#{item}/send_redirects")
+  file.search_file_replace("1", "0")
+end
 
 service "network" do
+  action :restart
+end
+
+service "openswan" do
   action :restart
 end
 
