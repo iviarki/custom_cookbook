@@ -13,12 +13,12 @@ end
 
 Dir.foreach('/proc/sys/net/ipv4/conf') do |item|
   next if item == '.' or item == '..'
-  file = Chef::Util::FileEdit.new("/proc/sys/net/ipv4/conf/#{item}/accept_redirects")
-  file.search_file_replace("1", "0")
-  file.write_file
-  file = Chef::Util::FileEdit.new("/proc/sys/net/ipv4/conf/#{item}/send_redirects")
-  file.search_file_replace("1", "0")
-  file.write_file
+  execute("accept_redirects") do
+    command "echo 0 > /proc/sys/net/ipv4/conf/#{item}/accept_redirects"
+  end
+  execute("send_redirects") do
+    command "echo 0 > /proc/sys/net/ipv4/conf/#{item}/send_redirects"
+  end
 end
 
 service "network" do
