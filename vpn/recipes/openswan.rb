@@ -11,8 +11,6 @@ ruby_block "forwarding" do
   end
 end
 
-ruby_block "disable_redirects" do
-  block do
     Dir.foreach('/proc/sys/net/ipv4/conf') do |item|
       next if item == '.' or item == '..'
       file "send_redirects" do
@@ -30,8 +28,6 @@ ruby_block "disable_redirects" do
         content '0'
       end
     end
-  end
-end
 
 service "network" do
   action :restart
