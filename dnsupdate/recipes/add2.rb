@@ -10,7 +10,7 @@ ruby_block "add-record" do
       change_batch: {
         changes: [
           {
-            action: "CREATE",
+            action: "UPSERT",
             resource_record_set: {
               #name: node[:opsworks][:instance][:hostname] + '.' + domain_name,
               name: node[:opsworks][:instance][:hostname] + '.tomzynski.co.za',
