@@ -1,7 +1,3 @@
-define :opsworks_deploy do
-  application = params[:app]
-  deploy = params[:deploy_data]
-   
   directory "#{deploy[:deploy_to]}" do
     group deploy[:group]
     owner deploy[:user]
@@ -9,4 +5,3 @@ define :opsworks_deploy do
     action :create
     recursive true
   end
-end
