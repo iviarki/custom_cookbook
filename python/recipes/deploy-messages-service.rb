@@ -1,4 +1,4 @@
-  directory "#{deploy[:deploy_to]}" do
+  directory "#{deploy[:sample][:deploy_to]}" do
     group deploy[:group]
     owner deploy[:user]
     mode "0775"
