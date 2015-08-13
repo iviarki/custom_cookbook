@@ -1,4 +1,4 @@
-source "https://api.berkshelf.com"
+source "https://supermarket.chef.io"
 cookbook "opsworks_sidekiq", github: "drakerlabs/opsworks_sidekiq", ref: "7879bc614f36c25ba93712e60d8a3711885bdd3a"
 cookbook "apt", "~> 2.6.0"
 cookbook "kibana_lwrp", github: "lusis/chef-kibana", ref: "77a828bd3d04a8e79064e913397dc7685132d9a3"
