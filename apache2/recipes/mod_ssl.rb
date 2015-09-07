@@ -22,11 +22,6 @@ if platform_family?('rhel')
     action :install
     notifies :run, "execute[generate-module-list]", :immediately
   end
-
-  file "#{node[:apache][:dir]}/conf.d/ssl.conf" do
-    action :delete
-    backup false 
-  end
 end
 
 template "#{node[:apache][:dir]}/ports.conf" do
