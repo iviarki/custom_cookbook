@@ -8,30 +8,30 @@
 
 # The following shows how to override the mod_php5_apache2 packages:
 #
-#normal[:mod_php5_apache2][:packages] = [ 'php-xml',
-#                                         'php-common',
-#                                         'php-xmlrpc',
-#                                         'php-devel',
-#                                         'php-gd',
-#                                         'php-cli',
-#                                         'php-pear-Auth-SASL',
-#                                         'php-mysql',
-#                                         'php-mcrypt' ]
+#normal[:mod_php5_apache2][:packages] = [ 'php55-xml',
+#                                         'php55-common',
+#                                         'php55-xmlrpc',
+#                                         'php55-devel',
+#                                         'php55-gd',
+#                                         'php55-cli',
+#                                         'php55-pear-Auth-SASL',
+#                                         'php55-mysql',
+#                                         'php55-mcrypt' ]
 normal[:mod_php5_apache2][:packages] = [
-    "php-xml",
-    "php-common",
-    "php-xmlrpc",
-    "php-gd",
-    "php-cli",
-    "php-pear-Auth-SASL",
-    "php-mcrypt",
-    "php-pecl-memcache",
-    "php-pear",
-    "php-pear-XML-Parser",
-    "php-pear-DB",
-    "php-pear-HTML-Common",
-    "php",
-    "php-devel",
-    "php-pear-Mail-Mime"
+    "php55-xml",
+    "php55-common",
+    "php55-xmlrpc",
+    "php55-gd",
+    "php55-cli",
+    "php55-pear-Auth-SASL",
+    "php55-mcrypt",
+    "php55-pecl-memcache",
+    "php55-pear",
+    "php55-pear-XML-Parser",
+    "php55-pear-DB",
+    "php55-pear-HTML-Common",
+    "php55",
+    "php55-devel",
+    "php55-pear-Mail-Mime"
   ]
 
