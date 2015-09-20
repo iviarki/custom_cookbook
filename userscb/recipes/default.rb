@@ -1,4 +1,8 @@
-require 'aws-sdk'
+chef_gem "aws-sdk" do
+  compile_time false
+  action :install
+end
+
 opsworks = Aws::OpsWorks::Client.new()
 
 
