@@ -1,5 +1,5 @@
 require 'aws-sdk'
-opsworks = AWS::OpsWorks::Client.new()
+opsworks = ::AWS::OpsWorks::Client.new()
 
 def add_user(username)
   Chef::Log.info("adding #{username} to stack: #{node[:opsworks][:stack][:name]}")
