@@ -1,12 +1,7 @@
-chef_gem "aws-sdk" do
-  action :install
-  version '>= 2.1'
-end
+require 'aws-sdk'
+opsworks = AWS::OpsWorks::Client.new()
 
-opsworks = Aws::OpsWorks::Client.new()
-
-
-sss add_user(username)
+def add_user(username)
   Chef::Log.info("adding #{username} to stack: #{node[:opsworks][:stack][:name]}")
   #get_stackid()
   begin
@@ -18,7 +13,7 @@ sss add_user(username)
     allow_sudo: true,
     level: "manage",
   })
-  rescue Aws::OpsWorks::Errors::ServiceError
+  #rescue Aws::OpsWorks::Errors::ServiceError
   end
 end
 
