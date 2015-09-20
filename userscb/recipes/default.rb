@@ -1,11 +1,12 @@
 chef_gem "aws-sdk" do
   action :install
+  version '>= 2.1'
 end
 
 opsworks = Aws::OpsWorks::Client.new()
 
 
-def add_user(username)
+sss add_user(username)
   Chef::Log.info("adding #{username} to stack: #{node[:opsworks][:stack][:name]}")
   #get_stackid()
   begin
