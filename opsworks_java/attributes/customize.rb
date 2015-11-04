@@ -1,1 +1,1 @@
-default['opsworks_java']['jvm_version'] = '8'
+normal['opsworks_java']['jvm_version'] = '8'
