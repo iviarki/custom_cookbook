@@ -1,3 +1,3 @@
 file 'C:\\something.txt' do
-  content "#{node[:roles][0]}"
+  content "#{aws_opsworks_layer["name"]}"
 end
