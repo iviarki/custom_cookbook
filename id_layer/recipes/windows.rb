@@ -1,3 +1,5 @@
+layer_name = search(:aws_opsworks_layer, "name")
+
 file 'C:\\something.txt' do
-  content "#{aws_opsworks_layer["name"]}"
+  content "#{layer_name}"
 end
