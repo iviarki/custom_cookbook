@@ -1,12 +1,8 @@
-host_name = Socket.gethostname
+instance = search(:node).first
 
-file 'C:\\hostname.txt' do
-  content "#{host_name}"
+instance_details = search(:aws_opsworks_instance, "hostname:#{instance[:hostname]}").first
+
+file 'C:\\layer.txt' do
+  content "#{instance_details[:role]}"
 end
 
-
-layer_name = search(:node)
-
-file 'C:\\something.txt' do
-  content "#{layer_name[:name]}"
-end
