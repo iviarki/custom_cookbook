@@ -3,7 +3,7 @@ app[:environment][:newrelic_key]
 
 
 template "/tmp/nrsysmond.cfg" do
-  source "test.cfg.erb"
+  source "test.conf.erb"
   variables ({
     :newrelic_key => app[:environment][:newrelic_key],
   })
