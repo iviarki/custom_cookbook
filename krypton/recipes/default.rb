@@ -1,6 +1,6 @@
 node[:command][:args][:app_ids].each | appid
   node[:resources][:apps].each | app
-    if app[:app_id]?(appid)
+    if app[:app_id] == appid
         template "/tmp/nrsysmond.cfg" do
             source "test.cfg.erb"
             variables ({
