@@ -1,5 +1,5 @@
-node[:command][:args][:app_ids].each do |appid|
-  node[:resources][:apps].each do |app|
+node[:aws_opsworks_agent][:command][:args][:app_ids].each do |appid|
+  node[:aws_opsworks_agent][:resources][:apps].each do |app|
     if app[:app_id] == appid
         template "/tmp/nrsysmond.cfg" do
             source "test.cfg.erb"
