@@ -1,6 +1,4 @@
 app = search(:aws_opsworks_app, "name:krypton").first
-app[:environment][:newrelic_key]
-
 
 template "/tmp/nrsysmond.cfg" do
   source "test.conf.erb"
