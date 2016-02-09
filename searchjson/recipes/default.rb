@@ -1,4 +1,4 @@
-adminapp = search(:node, "name:admin").first
+adminapp = search(:aws_opsworks_app, "name:admin").first
 Chef::Log.info("**********Admin App is: '#{adminapp[:name]}'**********")
 
 file "/tmp/variable" do
