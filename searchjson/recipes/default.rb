@@ -1,8 +1,8 @@
-adminapp = search(:aws_opsworks_app, "name:admin").first
-Chef::Log.info("**********Admin App is: '#{adminapp[:name]}'**********")
-
-file "/tmp/variable" do
-  content "#{adminapp[:name]}"
-  mode 0644
-  action :create
+node['apps'].each do |app|
+  resultapp = search(:aws_opsworks_app, "name:#{app}".first
+  file "/tmp/#{resultapp[:name]}" do
+    content "#{resultapp[:name]}"
+    mode 0644
+    action :create
+  end
 end
