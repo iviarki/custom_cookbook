@@ -17,5 +17,5 @@ instance_attributes.block_device_mappings.each do|mapping|
 end
 tag_instance = ec2.create_tags({
   resources: toTag,
-  tags: node['state']
+  tags: node['aws-tag']['tags']
 })
