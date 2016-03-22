@@ -1,4 +1,4 @@
-gem 'aws-sdk'
+#gem 'aws-sdk'
 require 'aws-sdk'
 instance = search("aws_opsworks_instance").first
 toTag = Array.new
