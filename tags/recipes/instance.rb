@@ -20,5 +20,5 @@ ec2 = Aws::EC2::Client.new( :region => "eu-west-1" )
 ec2.create_tags({
   resources: [instance['ec2_instance_id']],
   tags: [{ key: "OpsWorksTag",
-    value: layer['name'] }]
+    value: tag }]
 })
