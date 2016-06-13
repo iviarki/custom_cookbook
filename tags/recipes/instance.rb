@@ -10,7 +10,7 @@ tags.push({ key: "OWInstance",
   value: instance['hostname'] })
 
 search("aws_opsworks_layer").each do |layer|
-  if instance['layer_ids'].include? layer.layer_id
+  if instance['layer_ids'].include? layer['layer_id']
     tags.push({ key: "OWLayer",
       value: layer['name'] })
   end
