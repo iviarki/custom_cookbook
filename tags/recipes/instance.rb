@@ -7,14 +7,14 @@ require 'aws-sdk'
 stack = search("aws_opsworks_stack").first
 tag = stack['name']+ '-'
 
+instance = search("aws_opsworks_instance", "self:true").first
+tag += instance['hostname']
+
 search("aws_opsworks_layer").each do |layer|
   if instance['layer_ids'].include? layer['layer_id']
     tag += layer['name']+ '-'
   end
 end
-
-instance = search("aws_opsworks_instance", "self:true").first
-tag += instance['hostname']
 
 ec2 = Aws::EC2::Client.new( :region => "eu-west-1" )
 ec2.create_tags({
