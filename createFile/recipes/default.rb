@@ -1,6 +1,6 @@
-user_home = "/home/#{node['user']}"
+user_home = "/home/#{node[:user]}"
 
-user node['user'] do
+user node[:user] do
    shell '/bin/bash'
    home user_home
    system true
@@ -8,7 +8,7 @@ user node['user'] do
 end
 
 directory "#{user_home}/.ssh" do
-   owner node[:user][:username]
+   owner node[:user]
    recursive true
 end
 
