@@ -11,4 +11,4 @@ ec2_region = stack['region']
 Chef::Log.info("Region: #{ec2_region}")
 layer = search(:aws_opsworks_layer)
 layer_name = layer[0]['name']
-Chef::Log.info("Region: #{layer_name}")
+Chef::Log.info("Layer: #{layer_name}")
