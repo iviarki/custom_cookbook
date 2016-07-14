@@ -10,7 +10,7 @@ layer_ids.each do |layer|
 		elb_type = "proxy"
 	when "railslayer", "phplayer"
 		elb_type = "app"
-	when "foolayer11"
+	when "foolayer1"
 		elb_type = "foo"
 	end
 end
