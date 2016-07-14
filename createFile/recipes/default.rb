@@ -14,5 +14,6 @@ end
 
 file "#{user_home}/.ssh/id_rsa" do
    content "Sample Text"
+   owner node[:user]
    mode 0400
 end
