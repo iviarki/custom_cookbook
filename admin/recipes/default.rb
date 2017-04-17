@@ -1,4 +1,7 @@
-gem 'aws-sdk'
+chef_gem "aws-sdk" do
+  compile_time true
+  action :install
+end
 require 'aws-sdk'
 
 instance = search("aws_opsworks_instance", "self:true").first
