@@ -1,7 +1,3 @@
-chef_gem "aws-sdk" do
-  compile_time true
-  action :install
-end
 require 'aws-sdk'
 
 ec2 = Aws::EC2::Client.new(region: node['api']['region'])
