@@ -1,6 +1,6 @@
 require 'aws-sdk'
 
-ec2 = Aws::EC2::Client.new(region: node['api']['region'])
+ec2 = AWS::EC2::Client.new(region: node['api']['region'])
 resp = ec2.authorize_security_group_ingress({
   group_id: node['api']['security_group_id'],
   ip_permissions: [
