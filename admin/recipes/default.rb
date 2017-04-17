@@ -1,3 +1,4 @@
+gem 'aws-sdk'
 require 'aws-sdk'
 
 instance = search("aws_opsworks_instance", "self:true").first
