@@ -1,7 +1,5 @@
 command = search("aws_opsworks_command").first
 
-Chef::Log.info("********** Command issued by: '#{command['iam_user_arn'] ? command['iam_user_arn'] : get_iam_user(command['command_id'])}' **********")
-
 def get_iam_user(command_id)
   Chef::Log.info("********** Ran function **********")
   # Ensure aws-sdk is installed and create OpsWorks Client
@@ -24,3 +22,5 @@ def get_iam_user(command_id)
   })
   return deployment_resp.deployments[0].iam_user_arn
 end
+
+Chef::Log.info("********** Command issued by: '#{command['iam_user_arn'] ? command['iam_user_arn'] : get_iam_user(command['command_id'])}' **********")
