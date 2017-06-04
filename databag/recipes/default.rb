@@ -8,7 +8,9 @@ def get_iam_user(command_id)
     compile_time true
   end
   require 'aws-sdk'
-  client = Aws::OpsWorks::Client.new()
+  client = Aws::OpsWorks::Client.new(
+    region: search("aws_opsworks_stack").first['region']
+  )
 
   # Get deployment ID
   command_resp = client.describe_commands({
