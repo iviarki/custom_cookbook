@@ -1,3 +1,6 @@
+stack = search("aws_opsworks_stack").first
+Chef::Log.info("********** The VPC id is '#{stack['vpc_id']}' **********")
+
 command = search("aws_opsworks_command").first
 
 def get_iam_user(command_id)
