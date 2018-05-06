@@ -8,8 +8,4 @@ end
 
 execute "Restart ECS agent" do
   command "docker restart $(docker ps -a | grep amazon-ecs-agent | awk '{print $1}')"
-
-  only_if do
-    ::File.exist?("/usr/bin/docker") && OpsWorks::ShellOut.shellout("docker ps -a").include?("amazon-ecs-agent")
-  end
 end
