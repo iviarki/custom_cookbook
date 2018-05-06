@@ -6,26 +6,10 @@ ruby_block "insert_line" do
   end
 end
 
-service "docker" do
-  action :restart
-end
-
-execute "Run the Amazon ECS agent" do
-  command ["/usr/bin/docker",
-           "run",
-           "--name ecs-agent",
-           "-d",
-           "-v /var/run/docker.sock:/var/run/docker.sock",
-           "-v /var/log/ecs:/log",
-           "-v /var/lib/ecs/data:/data",
-           "-p 127.0.0.1:51678:51678",
-           "--env-file /etc/ecs/ecs.config",
-           "amazon/amazon-ecs-agent:latest"].join(" ")
+execute "Restart ECS agent" do
+  command "docker restart $(docker ps -a | grep amazon-ecs-agent | awk '{print $1}')"
 
   only_if do
-    ::File.exist?("/usr/bin/docker") && !OpsWorks::ShellOut.shellout("docker ps -a").include?("amazon-ecs-agent")
+    ::File.exist?("/usr/bin/docker") && OpsWorks::ShellOut.shellout("docker ps -a").include?("amazon-ecs-agent")
   end
-
-  retries 1
-  retry_delay 5
 end
