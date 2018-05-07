@@ -1,3 +1,12 @@
+ecs = Aws::ECS::Client.new
+ecs.operation_names
+
+require 'aws-sdk'
+
+puts client.list_container_instances({
+  cluster: "test2"
+})
+
 ruby_block "insert_line" do
   block do
     file = Chef::Util::FileEdit.new("/etc/ecs/ecs.config")
