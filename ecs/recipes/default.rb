@@ -1,7 +1,7 @@
+require 'aws-sdk'
+
 ecs = Aws::ECS::Client.new
 ecs.operation_names
-
-require 'aws-sdk'
 
 puts client.list_container_instances({
   cluster: "test2"
