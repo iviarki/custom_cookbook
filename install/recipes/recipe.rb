@@ -4,4 +4,5 @@ powershell_script 'p4vinst64_install' do
 	elevated true
 	user "Administrator"
 	password "Lw@?GorJ9?E"
+	flags "-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy Unrestricted, -InputFormat None, -File"
 end 
