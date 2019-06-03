@@ -1,6 +1,5 @@
-windows_package 'PuTTY version 0.60' do
-  source 'http://www.perforce.com/downloads/perforce/r19.1/bin.ntx64/p4vinst64.exe'
-  installer_type :custom
+windows_package 'p4v' do
   action :install
-  options '/v"/l*v+ c:\p4vinst.log"'
+  source 'p4vinst64.msi'
+  options '/q'
 end
