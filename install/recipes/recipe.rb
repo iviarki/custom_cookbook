@@ -1,4 +1,4 @@
 powershell_script 'p4vinst64_install' do 
 	cwd "C:\\"
-	code 'Start-Process -FilePath C:\p4vinst64.exe -ArgumentList "/s /v/qn" -LoadUserProfile -NoNewWindow -PassThru -RedirectStandardError C:\error.txt -RedirectStandardOutput c:\std.txt -Wait -Debug -Verbose'
+	code 'Start-Process -FilePath C:\p4vinst64.exe -ArgumentList "/s /v/qn" -ExecutionPolicy Bypass -Wait -Debug -Verbose'
 end 
