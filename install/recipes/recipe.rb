@@ -1,5 +1,4 @@
 powershell_script 'p4vinst64_install' do 
 	cwd "C:\\"
-	code '.\p4vinst64.exe /s /v/qn >> C:\\log.log' 
-	flags "-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy Unrestricted, -InputFormat None, -File"
+	code 'start-process -FilePath "C:\p4vinst64.exe" -ArgumentList "/s /v/qn" -Verb runas -Wait'
 end 
