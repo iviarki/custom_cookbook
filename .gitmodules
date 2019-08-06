@@ -1,3 +1,0 @@
-[submodule "users"]
-	path = users
-	url = https://github.com/chef-cookbooks/users.git
