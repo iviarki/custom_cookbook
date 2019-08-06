@@ -75,11 +75,15 @@ module S3FileLib
   BLOCKSIZE_TO_READ = 1024 * 1000 unless const_defined?(:BLOCKSIZE_TO_READ)
 
   def self.with_region_detect(region = nil)
+    Chef::Log.info "Bofre first yield"
     yield(region)
   rescue client::BadRequest => e
+    Chef::Log.info "Hitting the rescue"
     if region.nil?
       region = e.response.headers[:x_amz_region]
       raise if region.nil?
+      Chef::Log.info "Sending out region:"
+      Chef::Log.info region
       yield(region)
     else
       raise
