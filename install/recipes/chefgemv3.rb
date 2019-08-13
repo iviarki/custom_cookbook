@@ -6,3 +6,6 @@ end
 
 Chef::Log.info("SDK Install complete")
 
+Gem.clear_paths()
+
+Chef::Log.info("Gem Clear Paths")
