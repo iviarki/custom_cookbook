@@ -1,4 +1,4 @@
 chef_gem "aws-sdk" do
-  compile_time false
+  compile_time true
   action :install
 end
