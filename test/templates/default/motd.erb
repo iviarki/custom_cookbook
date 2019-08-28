@@ -1,4 +1,9 @@
 <%= @rails_env %>:
-   username: <%= @instances %>
+   username: <%= @instances.each do | i |dd %>
+<% 
+@instances.each do |i| 
+%>
+   instanceId: <%= i['ec2_instance_id'] %>
+<% end %>
    encoding: 'utf8'
    reconnect: true
