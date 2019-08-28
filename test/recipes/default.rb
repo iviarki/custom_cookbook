@@ -3,6 +3,12 @@ Chef::Log.info("********** Layer: '#{layer}' **********")
 instances = search("aws_opsworks_instance", "layer_ids:'#{layer['layer_id']}'")
 Chef::Log.info("********** Instances: '#{instances}' **********")
 
+
+execute 'output' do
+  command 'echo "Output command has run"'
+  action :nothing
+end
+
 template '/etc/motd' do
   source 'motd.erb'
   owner 'root'
@@ -11,6 +17,6 @@ template '/etc/motd' do
   variables(
     :instances => instances
   )
-  notifies :reload, 'service[monit]'
+  notifies :run, 'execute[output]'
 end
 
