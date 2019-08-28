@@ -1,5 +1,6 @@
 layer = search("aws_opsworks_layer", "name:nginx").first
 Chef::Log.info("********** Layer: '#{layer}' **********")
+Chef::Log.info("********** LayerId: '#{layer['layer_id']}' **********")
 instances = search("aws_opsworks_instance")
 Chef::Log.info("********** Instances: '#{instances}' **********")
 
