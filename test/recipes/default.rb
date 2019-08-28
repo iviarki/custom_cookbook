@@ -1,6 +1,6 @@
 layer = search("aws_opsworks_layer", "name:nginx").first
 Chef::Log.info("********** Layer: '#{layer}' **********")
-instances = search("aws_opsworks_instance", "layer:'#{layer['layer_id']}'")
+instances = search("aws_opsworks_instance", "layer_ids:'#{layer['layer_id']}'")
 Chef::Log.info("********** Instances: '#{instances}' **********")
 
 template '/etc/motd' do
@@ -11,6 +11,6 @@ template '/etc/motd' do
   variables(
     :instances => instances
   )
-  notifies :reload, 'service[nginx]'
+  notifies :reload, 'service[monit]'
 end
 
