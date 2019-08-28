@@ -4,7 +4,7 @@ instances = search("aws_opsworks_instance")
 Chef::Log.info("********** Instances: '#{instances}' **********")
 
 nginx_instances = instances.select do |i|
-  i.layer_ids.include? layer.layer_id
+  i['layer_ids'].include? layer['layer_id']
 end
 Chef::Log.info("********** Nginx Instances: '#{nginx_instances}' **********")
 execute 'output' do
